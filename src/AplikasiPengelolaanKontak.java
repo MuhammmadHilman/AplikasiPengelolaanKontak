@@ -265,6 +265,7 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Pengelolaan Kontak", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Nama");
@@ -384,7 +385,8 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(21, 18, 49, 0);
         jPanel1.add(cariButton, gridBagConstraints);
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Daftar Kontak"));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         kontakTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -401,7 +403,18 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(kontakTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 0, 480, 287));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 457;
+        gridBagConstraints.ipady = 260;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(22, 16, 0, 29);
+        jPanel2.add(jScrollPane1, gridBagConstraints);
 
         eksporButton.setText("Exspor Data");
         eksporButton.addActionListener(new java.awt.event.ActionListener() {
@@ -409,7 +422,12 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
                 eksporButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(eksporButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 296, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 16, 7, 0);
+        jPanel2.add(eksporButton, gridBagConstraints);
 
         imporButton.setText("Impor Data");
         imporButton.addActionListener(new java.awt.event.ActionListener() {
@@ -417,7 +435,12 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
                 imporButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(imporButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 296, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 18, 7, 0);
+        jPanel2.add(imporButton, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -427,7 +450,7 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -436,7 +459,7 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
