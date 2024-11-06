@@ -325,7 +325,7 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(22, 53, 0, 0);
         jPanel1.add(teleponTextField, gridBagConstraints);
 
-        kategoriComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Kategori", "Keluarga", "Teman", "Kerja", " " }));
+        kategoriComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Kategori", "Keluarga", "Teman", "Kerja" }));
         kategoriComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 kategoriComboBoxItemStateChanged(evt);
