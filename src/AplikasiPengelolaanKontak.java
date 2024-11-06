@@ -25,6 +25,17 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
         tableModel = new DefaultTableModel(new String[]{"ID", "Nama", "Telepon", "Kategori"}, 0);
         // Menghubungkan model ke JTable
         kontakTable.setModel(tableModel);
+        
+        kontakTable.getSelectionModel().addListSelectionListener(e -> {
+            int selectedRow = kontakTable.getSelectedRow();
+            if (selectedRow != -1) { // Pastikan ada baris yang dipilih
+                // Ambil data dari baris yang dipilih dan tampilkan di JTextField
+                String nama = (String) tableModel.getValueAt(selectedRow, 1); // Ambil nama dari kolom ke-1
+                String telepon = (String) tableModel.getValueAt(selectedRow, 2); // Ambil telepon dari kolom ke-2
+                namaTextField.setText(nama); // Masukkan nama ke dalam JTextField
+                teleponTextField.setText(telepon); // Masukkan nomor telepon ke dalam JTextField
+            }
+        });
     }
     
     public class DatabaseHelper {
@@ -235,6 +246,8 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat mengimpor data", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
+   
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -468,7 +481,7 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
 
     private void tambahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahButtonActionPerformed
         // TODO add your handling code here:
-        tambahButton.addActionListener(e -> {
+        
             String nama = namaTextField.getText();
             String telepon = teleponTextField.getText();
             String kategori = (String) kategoriComboBox.getSelectedItem();
@@ -482,23 +495,24 @@ public class AplikasiPengelolaanKontak extends javax.swing.JFrame {
             // Jika validasi berhasil, lanjutkan dengan menambah kontak
             tambahKontak(nama, telepon, kategori);
             tampilkanKontak(tableModel); // Refresh JTable setelah tambah data
-        });
 
     }//GEN-LAST:event_tambahButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
-        editButton.addActionListener(e -> {
-            int selectedRow = kontakTable.getSelectedRow();
-            if (selectedRow != -1) { // Pastikan ada baris yang dipilih
-                int id = Integer.parseInt((String) tableModel.getValueAt(selectedRow, 0));
-                String nama = namaTextField.getText();
-                String telepon = teleponTextField.getText();
-                String kategori = (String) kategoriComboBox.getSelectedItem();
-                updateKontak(id, nama, telepon, kategori);
-                tampilkanKontak(tableModel); // Refresh JTable setelah update data
-            }
-        });
+        int selectedRow = kontakTable.getSelectedRow();
+        if (selectedRow != -1) { // Pastikan ada baris yang dipilih
+            int id = Integer.parseInt((String) tableModel.getValueAt(selectedRow, 0)); // Ambil ID dari kolom ke-0
+            String nama = namaTextField.getText(); // Ambil nama dari JTextField
+            String telepon = teleponTextField.getText(); // Ambil telepon dari JTextField
+            String kategori = (String) kategoriComboBox.getSelectedItem(); // Ambil kategori dari JComboBox
+
+            // Update kontak dalam database atau model
+            updateKontak(id, nama, telepon, kategori);
+
+            // Refresh JTable setelah update data
+            tampilkanKontak(tableModel);
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
